@@ -28,23 +28,27 @@ int main(){
         {
             float prelim = 0, midterm = 0, prefinal = 0, final = 0, average = 0;
             printf("======== GRADE CALCULATOR AND EVALUATOR ========\n");
-            printf("\n Enter grade in Prelim: ");
+            printf("\n This program will calculate your average grade and determine if you passed or failed based on your grades.\n");
+            printf("\n Enter grade in Prelim ( 1-5 ): ");
             scanf(" %f", &prelim);
-            printf("\n Enter grade in Midterm: ");
+            printf("\n Enter grade in Midterm ( 1-5 ): ");
             scanf(" %f", &midterm);
-            printf("\n Enter grade in Pre-Final: ");
+            printf("\n Enter grade in Pre-Final ( 1-5 ): ");
             scanf(" %f", &prefinal);
-            printf("\n Enter grade in Final: ");
+            printf("\n Enter grade in Final ( 1-5 ): ");
             scanf(" %f", &final);
             average = (prelim + midterm + prefinal + final) / 4;
             if (average <= 3.0)
             {
                 printf("Your average is: %.2f\n", average);
                 printf("You are PASSED!\n");
-            } else
+            } else if (average > 3.0)
             {
                 printf("Your average is: %.2f\n", average);
                 printf("You are FAILED!\n");
+            } else
+            {
+                printf("Invalid input. Please enter valid grades.\n");
             }
         } else if (userChoice == 4) // Palindrome Checker 
         { 
