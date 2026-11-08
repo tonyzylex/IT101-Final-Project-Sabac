@@ -29,33 +29,33 @@ int main(){
             float prelim = 0, midterm = 0, prefinal = 0, final = 0, average = 0;
             printf("======== GRADE CALCULATOR AND EVALUATOR ========\n");
             printf("\n This program will calculate your average grade and determine if you passed or failed based on your grades.\n");
-            printf("\n Enter grade in Prelim ( 1-5 ): ");
-            scanf(" %f", &prelim);
-            printf("\n Enter grade in Midterm ( 1-5 ): ");
-            scanf(" %f", &midterm);
-            printf("\n Enter grade in Pre-Final ( 1-5 ): ");
-            scanf(" %f", &prefinal);
-            printf("\n Enter grade in Final ( 1-5 ): ");
-            scanf(" %f", &final);
+            while (1)
+            {
+                printf("\n Enter grade ( 1-5 ) in Prelim, Midterm, Pre-Final, and Final: ");
+                if (scanf(" %f", &prelim) != 1 || scanf(" %f", &midterm) != 1 ||
+                    scanf(" %f", &prefinal) != 1 || scanf(" %f", &final) != 1)
+                {
+                    printf("Invalid input! Please enter a valid number.\n");
+                    while (getchar() != '\n'); 
+                    continue;
+                }
+                if (prelim < 1 || prelim > 5 || midterm < 1 || midterm > 5 || prefinal < 1 || prefinal > 5 || final < 1 || final > 5)
+                {
+                    printf("Invalid input! Please enter grades between 1 and 5.\n");
+                    while (getchar() != '\n'); 
+                    continue;
+                }
+                break; 
+            }
             average = (prelim + midterm + prefinal + final) / 4;
+            printf("Your average is: %.2f\n", average);
             if (average <= 3.0)
             {
-                printf("Your average is: %.2f\n", average);
                 printf("You are PASSED!\n");
             } else if (average > 3.0)
             {
-                printf("Your average is: %.2f\n", average);
                 printf("You are FAILED!\n");
-            } else
-            {
-                printf("Invalid input. Please enter valid grades.\n");
             }
-        } else if (userChoice == 4) // Palindrome Checker 
-        { 
-
-        } else if (userChoice == 5)
-        {
-            break;
         }
 
         printf("\n\nDo you want to return to the MENU? (Y/N): ");
