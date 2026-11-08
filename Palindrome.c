@@ -30,30 +30,31 @@ int main(){
         } else if (userChoice == 4) // Palindrome Checker 
         { 
             char str[100];
-            int i, length, flag = 0;
+            int i, left, right, checker = 0;
             printf("======== PALINDROME CHECKER ========\n");
             printf("\n Enter a word: ");
-            scanf(" %[^\n]s", str);
-            length = 0;
-            while (str[length] != '\0')
+            scanf(" %99[^\n]", str);
+            left = 0;
+            right = strlen(str) - 1;
+            while (left < right)
             {
-                length++;
-            }
-            for (i = 0; i < length / 2; i++)
-            {
-                if (str[i] != str[length - i - 1])
+                if (isspace((unsigned char)str[left])) { left++; continue; }
+                if (isspace((unsigned char)str[right])) { right--; continue; }
+                if (tolower((unsigned char)str[left]) != tolower((unsigned char)str[right]))
                 {
-                    flag = 1;
+                    checker = 1;
                     break;
                 }
+                left++;
+                right--;
             }
-            if (flag)
+            if (checker)
             {
                 printf("%s is not a palindrome.\n", str);
-            } else
+            } else if (!checker)
             {
                 printf("%s is a palindrome.\n", str);
-            }
+            } 
         } else if (userChoice == 5)
         {
             break;
