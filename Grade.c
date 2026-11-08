@@ -1,5 +1,9 @@
 #include <stdio.h>
 
+void clearInputBuffer() {
+    int c;
+    while ((c = getchar()) != '\n' && c != EOF) {}
+}
 int main(){
     int LoopBreak = 0;
     char tryAgain = 'Y';
