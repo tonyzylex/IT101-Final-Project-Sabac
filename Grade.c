@@ -1,23 +1,21 @@
 #include <stdio.h>
+#include <string.h>
+#include <ctype.h>
 
-void clearInputBuffer() {
-    int c;
-    while ((c = getchar()) != '\n' && c != EOF) {}
-}
 int main(){
-    int LoopBreak = 0;
     char tryAgain = 'Y';
 
-    while (LoopBreak != 1)
+    do
     {
         int userChoice = 0;
+
         printf("\n=====================\n");
         printf("Welcome to C-ToolKit!");
         printf("\n=====================");
         printf("\n[1] = The Pattern Generator");
         printf("\n[2] = Pascals Triangle");
         printf("\n[3] = Grade Calculator & Evaluator");
-        printf("\n[4] = Palindrone Checker");
+        printf("\n[4] = Palindrome Checker");
         printf("\n[5] = Exit program");
         printf("\nChoose option(1-5):");
         scanf("%d",&userChoice);
@@ -60,6 +58,18 @@ int main(){
             {
                 printf("You are FAILED!\n");
             }
+        }
+        else if (userChoice == 4) // Palindrome Checker 
+        { 
+           
+        } 
+        } else if (userChoice == 5)
+        {
+            break;
+        } else
+        {
+            printf("Invalid choice. Please select a valid option.\n");
+            continue;
         }
 
         printf("\n\nDo you want to return to the MENU? (Y/N): ");
