@@ -305,7 +305,7 @@ int main(){
                 printf("\nInvalid input! Try again!");
             }
         }
-        printf("\nPress any Enter to continue..");
+        printf("\nPress any Key to continue..");
         while (getchar() != '\n');
         getchar();
     }
