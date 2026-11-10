@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
-
+#include <string.h>
+#include <ctype.h>
 
 int main(){
     
@@ -216,12 +217,86 @@ int main(){
                 }
             }else if (userChoice == 3)
             {
-                printf("\nThe Grade Calculator & Evaluator is under development");
-                // Code block logic for Grade Calculator & Evaluator
+                system("cls");
+                float prelim = 0, midterm = 0, prefinal = 0, final = 0, average = 0;
+                printf("======== GRADE CALCULATOR AND EVALUATOR ========\n");
+                printf("\n This program will calculate your average grade and determine if you passed or failed based on your grades.\n");
+                while (1)
+                {
+                    printf("\n Enter prelim grade ( 1-5 ):");
+                    if (scanf(" %f", &prelim) != 1)
+                    {
+                        printf("Invalid input! Please enter a valid number.\n");
+                        while (getchar() != '\n'); 
+                        continue;
+                    }
+                    printf("\n Enter midterm grade ( 1-5 ):");
+                    if (scanf(" %f", &midterm) != 1)
+                    {
+                        printf("Invalid input! Please enter a valid number.\n");
+                        while (getchar() != '\n'); 
+                        continue;
+                    }
+                    printf("\n Enter pre-final grade ( 1-5 ):");
+                    if (scanf(" %f", &prefinal) != 1)
+                    {
+                        printf("Invalid input! Please enter a valid number.\n");
+                        while (getchar() != '\n'); 
+                        continue;
+                    }
+                    printf("\n Enter final grade ( 1-5 ):");
+                    if (scanf(" %f", &final) != 1)
+                    {
+                        printf("Invalid input! Please enter a valid number.\n");
+                        while (getchar() != '\n'); 
+                        continue;
+                    }
+                    if (prelim < 1 || prelim > 5 || midterm < 1 || midterm > 5 || prefinal < 1 || prefinal > 5 || final < 1 || final > 5)
+                    {
+                        printf("Invalid input! Please enter grades between 1 and 5.\n");
+                        while (getchar() != '\n');
+                        continue;
+                    }
+                    break; 
+                }
+                average = (prelim + midterm + prefinal + final) / 4;
+                printf("Your average is: %.2f\n", average);
+                if (average <= 3.0)
+                {
+                    printf("You PASSED!\n");
+                } else if (average > 3.0)
+                {
+                    printf("You FAILED!\n");
+                }
             }else if (userChoice == 4)
             {
-                printf("\nThe Palindrone Checker is under development");
-                // Code block logic for Palindrone Checker
+                system("cls");
+                char str[100];
+                int i, left, right, checker = 0;
+                printf("======== PALINDROME CHECKER ========\n");
+                printf("\n Enter a word: ");
+                scanf(" %99[^\n]", str);
+                left = 0;
+                right = strlen(str) - 1;
+                while (left < right)
+                {
+                    if (isspace((unsigned char)str[left])) { left++; continue; }
+                    if (isspace((unsigned char)str[right])) { right--; continue; }
+                    if (tolower((unsigned char)str[left]) != tolower((unsigned char)str[right]))
+                    {
+                        checker = 1;
+                        break;
+                    }
+                    left++;
+                    right--;
+                }
+                if (checker)
+                {
+                    printf("%s is not a palindrome.\n", str);
+                } else if (!checker)
+                {
+                    printf("%s is a palindrome.\n", str);
+                } 
             }else if (userChoice == 5)
             {
                 printf("\nExiting program..!");
