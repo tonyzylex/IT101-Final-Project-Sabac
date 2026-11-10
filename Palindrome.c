@@ -32,7 +32,7 @@ int main(){
         } else if (userChoice == 4) // Palindrome Checker 
         { 
             char str[100];
-            int i, left, right, checker = 0;
+            int left, right, checker = 0;
             printf("======== PALINDROME CHECKER ========\n");
             printf("\n Enter a word: ");
             scanf(" %99[^\n]", str);
